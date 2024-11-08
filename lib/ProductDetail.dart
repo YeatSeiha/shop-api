@@ -5,8 +5,7 @@ import 'dart:convert';
 
 void main() => runApp(
     DevicePreview(
-        builder: (context) =>
-            MyApp()
+        builder: (context) => MyApp()
     )
 );
 
@@ -58,6 +57,57 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Products'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('User Name'),
+              accountEmail: Text('user@example.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  'https://static.wikia.nocookie.net/warner-bros-entertainment/images/5/55/TToE_%2839%29.png/revision/latest?cb=20220421213853',
+                ),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to home page if needed
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_cart),
+              title: Text('Cart'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to cart page if implemented
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.favorite),
+              title: Text('Favorites'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to favorites page if implemented
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navigate to settings page if implemented
+              },
+            ),
+          ],
+        ),
       ),
       body: isLoading
           ? Center(child: CircularProgressIndicator())
